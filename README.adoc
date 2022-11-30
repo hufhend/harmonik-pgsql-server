@@ -1,0 +1,24 @@
+# PostgreSQL server for Harmonik
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:toc:
+:toc-placement!:
+:toc-title:
+
+PostgreSQL server in docker for Harmonik economic software
+[discrete]
+== Contents
+
+toc::[]
+
+== Usage
+----
+docker compose pull && time docker compose build && docker compose up -d
+----
+== Data import
+----
+time docker exec -i postgres /bin/bash -c "PGPASSWORD=passwd psql --username root postgres" < ./zal.sql
+----
