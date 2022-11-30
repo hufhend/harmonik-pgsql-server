@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+
+  db:
+    container_name: postgres
+#    image: postgres:13.5
+    build:
+      context: ./build
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret_passwd_Xai3g
+      POSTGRES_DB: data
+    ports:
+      - "5501:5432"
+
+    volumes:
+      - $PWD/database:/var/lib/postgresql/data
+
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: john.doe@duck.com
+      PGADMIN_DEFAULT_PASSWORD: secret_passwd_change_me_pheX8
+    ports:
+      - "5050:80"
+
+#volumes:
+#  harmonik_data:
