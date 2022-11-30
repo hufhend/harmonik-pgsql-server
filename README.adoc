@@ -22,3 +22,15 @@ docker compose pull && time docker compose build && docker compose up -d
 ----
 time docker exec -i postgres /bin/bash -c "PGPASSWORD=passwd psql --username root postgres" < ./zal.sql
 ----
+=== Database creation
+----
+docker exec -it postgres /bin/bash 
+root@4b29e053bf38:/# psql -U root -d data
+psql (13.5 (Debian 13.5-1.pgdg110+1))
+Pro získání nápovědy napište "help".
+
+data=# create database sitghaso;
+CREATE DATABASE
+data=# 
+\q
+----
